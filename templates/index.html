@@ -1,49 +1,51 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta charset = "UTF-8">
-    <meta name = "viewport" content = "width = device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Paleta de Colores</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <header>
         <h1>Generador de Paleta de Colores con IA</h1>
     </header>
     <main>
-        <section id = "upload-section">
-            <h2>Subir Imagen</h2>
-            <form id = "upload-form" enctype = "multipart/form-data">
-                <input type = "file" name = "file" id = "file-input" accept = "image/*" required>
-                <button type = "submit">Extraer Colores</button>
+        <section id="upload-section">
+            <form id="upload-form" enctype="multipart/form-data" autocomplete="off">
+                <div id="image-preview-conteiner">
+                    <img id="image-preview" alt="">
+                    <span id="image-text">Vista previa de la imagen</span>
+                </div>
+                <input type="file" name="file" id="file-input" accept="image/*" required>
+                <button type="submit">Extraer Colores</button>
             </form>
-            <div id = "color-preview"></div>
+            <div id="color-preview"></div>
         </section>
 
-        <section id = "palette-section">
+        <section id="palette-section">
             <h2>Generar una Paleta</h2>
-            <form id = "palette-form">
-                <label for = "colors-input">Ingresar Colores (Hex)</label>
-                <input type = "text" id = "colors-input" placeholder = "#FF5733, #33FF57" required>
-                <button type = "submit">Generar Paleta</button>
+            <form id="palette-form" autocomplete="off">
+                <label for="colors-input">Ingresar Colores (Hex)</label>
+                <input type="text" id="colors-input" placeholder="#FF5733, #33FF57" required>
+                <button type="submit">Generar Paleta</button>
             </form>
-            <div id = "palette-preview"></div>
+            <div id="palette-preview"></div>
         </section>
 
-        <section id = "contrast-section">
+        <section id="contrast-section">
             <h2>Analizar Contraste</h2>
-            <form id = "contrast-form">
-                <label for = "color1-input">Color 1 (Hex):</label>
-                <input type = "text" id = "color1-input" placeholder = "#FFFFFF" required>
+            <form id="contrast-form" autocomplete="off">
+                <label for="color1-input">Color 1 (Hex):</label>
+                <input type="text" id="color1-input" placeholder="#FFFFFF" required>
 
-                <label for = "color2-input">Color 2 (Hex):</label>
-                <input type = "text" id = "color2-input" placeholder = "#000000" required>
+                <label for="color2-input">Color 2 (Hex):</label>
+                <input type="text" id="color2-input" placeholder="#000000" required>
 
                 <button type="submit">Comprobar Contraste</button>
             </form>
-            <div id = "contrast-result"></div>
+            <div id="contrast-result"></div>
         </section>
     </main>
     <footer>

@@ -1,3 +1,4 @@
+# Librerías.
 from PIL import Image
 from sklearn.cluster import KMeans
 

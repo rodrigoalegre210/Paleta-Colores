@@ -1,7 +1,5 @@
 from PIL import Image
 
-import re
-
 # Varificamos si el archivo es una imagen válida.
 def validar_imagen(archivo):
 

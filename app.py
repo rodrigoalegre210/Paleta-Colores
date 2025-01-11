@@ -1,3 +1,4 @@
+# Librerías.
 from flask import Flask, request, jsonify, render_template
 from backend.modelos.extractor_colores import extractor_colores
 from backend.modelos.modelo import generar_paleta
