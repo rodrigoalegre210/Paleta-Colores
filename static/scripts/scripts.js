@@ -8,27 +8,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const contrastResult = document.getElementById("contrast-result");
 
     uploadForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
+        event.preventDefault(); // Evitar recarga de la página
         const formData = new FormData(uploadForm);
+    
+        const fileInput = document.getElementById("file-input");
+        if (!fileInput.files.length) {
+            alert("Por favor, selecciona un archivo.");
+            return;
+        }
+    
         try {
             const response = await fetch("/api/upload", {
                 method: "POST",
                 body: formData,
             });
-
+    
             if (!response.ok) {
                 const error = await response.json();
-                alert(error.error);
+                alert(error.error || "Error al procesar la imagen.");
                 return;
             }
-
+    
             const data = await response.json();
-            colorPreview.innerHTML = data.colors
-                .map(color => `<div class="color-block" style="background-color: ${color}">${color}</div>`)
-                .join("");
+            if (data.Colores) {
+                colorPreview.innerHTML = data.Colores
+                    .map(color => `<div class="color-block" style="background-color: ${color}">${color}</div>`)
+                    .join("");
+            } else {
+                alert("No se encontraron colores en la imagen.");
+            }
         } catch (error) {
-            alert("Error uploading the image. Please try again.");
+            alert("Error de red: " + error.message);
         }
     });
 
@@ -64,10 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     contrastForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-
+    
         const color1 = document.getElementById("color1-input").value.trim();
         const color2 = document.getElementById("color2-input").value.trim();
-
+    
         try {
             const response = await fetch("/api/contrast", {
                 method: "POST",
@@ -76,15 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 body: JSON.stringify({ color1, color2 }),
             });
-
+    
             if (!response.ok) {
                 const error = await response.json();
                 alert(error.error);
                 return;
             }
-
+    
             const data = await response.json();
-            contrastResult.textContent = `Contrast Ratio: ${data.contrast_ratio}`;
+            contrastResult.textContent = `Contrast Ratio: ${data.radio_constraste}`; // Aquí está la corrección
         } catch (error) {
             alert("Error analyzing contrast. Please try again.");
         }

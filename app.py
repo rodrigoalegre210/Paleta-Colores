@@ -28,28 +28,31 @@ def cargar_imagen():
     # Procesamos la imagen para extraer colores.
     try:
         colores = extractor_colores(file)
+        print(f"Colores extraídos: {colores}")
     except Exception as e:
+        print(f"Error al procesar la imagen: {str(e)}")
         return jsonify({'error': f'Error al procesar la imagen: {str(e)}'}), 500
-    
+
     return jsonify({'Colores': colores}), 200
 
-@app.route('/api/paleta', methods = ['POST'])
+@app.route('/api/palette', methods = ['POST'])
 
 # Endpoint para generar una paleta basada en colores proporcionados o preferencias.
 def generar_paleta_endpoint():
     
-    data = request.get_json()
-    if not data or 'colores' not in data:
-        return jsonify({'error': 'Faltan colores en la solicitud'}), 400
-    
     try:
-        paleta = generar_paleta(data['colores'])
-    except Exception as e:
-        return jsonify({'error': f'Error al generar la paleta: {str(e)}'}), 500
-    
-    return jsonify({'paleta': paleta}), 200
+        # Obtener los datos enviados por el cliente.
+        input_colors = request.json.get('colors', [])
+        if not input_colors:
+            return jsonify({'error': 'No se proporcionaron colores'}), 400
 
-@app.route('/api/contraste', methods = ['POST'])
+        # Generar la paleta de colores.
+        palette = generar_paleta(input_colors)
+        return jsonify({'palette': palette})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/contrast', methods = ['POST'])
 
 # Endpoint para analizar el contraste entre dos colores.
 def analizar_contraste():
