@@ -1,1 +1,1 @@
-a
+#Paleta de colores
