@@ -41,3 +41,13 @@ El proyecto usa el argoritmo K-Means Clustering para analizar y extraer colores 
 * HTML, CSS y JavaScript: Para el frontend.
 
 <img src="Vista.jpeg" alt="Vista Previa">
+
+### Secciones principales.
+
+1. **Subir imagen**
+   
+   * Función: Permite al usuario cargar una imagen en cualquier formato compatible (como PNG o JPG).
+   * Poceso:
+     * Valida que el archivo sea una imagen válida.
+     * Extrae colores dominantes de la imagen mediante el algoritmo K-Means.
+   * Resultado: Muestra una vista previa de los colores extraídos.
