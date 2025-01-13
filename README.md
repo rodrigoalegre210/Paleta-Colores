@@ -44,10 +44,32 @@ El proyecto usa el argoritmo K-Means Clustering para analizar y extraer colores 
 
 ### Secciones principales.
 
-1. **Subir imagen**
+1. **Subir Imagen**
    
-   * Función: Permite al usuario cargar una imagen en cualquier formato compatible (como PNG o JPG).
-   * Poceso:
+   * **Función**: Permite al usuario cargar una imagen en cualquier formato compatible (como PNG o JPG).
+     
+   * **Poceso**:
      * Valida que el archivo sea una imagen válida.
      * Extrae colores dominantes de la imagen mediante el algoritmo K-Means.
-   * Resultado: Muestra una vista previa de los colores extraídos.
+       
+   * **Resultado**: Muestra una vista previa de los colores extraídos.
+
+2. **Generar Paleta**
+   
+   * **Función**: Genera una paleta de colores complementarios a partir de colores proporcionados.
+     
+   * **Proceso**:
+     * Recibe un conjunto de colores en formato hexadecimal.
+     * Genera colores diversos que hacen sinergia con colores iniciales.
+
+   * **Resultado**: Una paleta visualmente agradable y funcional.
+  
+3. **Analizar Contraste**
+   
+   * **Función**: Evalúa el contraste entre dos colores.
+  
+   * **Proceso**:
+     * Calcula la relación de contraste utilizando la fórmula de luminancia relativa.
+     * Retorna un valor númerico que indica si el contraste cumple con los estándares WCAG.
+    
+   * **Resultado**: Muestra el ratio de contraste.
