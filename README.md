@@ -40,3 +40,4 @@ El proyecto usa el argoritmo K-Means Clustering para analizar y extraer colores 
 * Pillow: Para manejar imágenes y validar su formato.
 * HTML, CSS y JavaScript: Para el frontend.
 
+<img src="Vista.jpeg" alt="Vista Previa">
