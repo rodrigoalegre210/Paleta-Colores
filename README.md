@@ -73,3 +73,5 @@ El proyecto usa el argoritmo K-Means Clustering para analizar y extraer colores 
      * Retorna un valor númerico que indica si el contraste cumple con los estándares WCAG.
     
    * **Resultado**: Muestra el ratio de contraste.
+
+Número:
