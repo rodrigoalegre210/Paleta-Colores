@@ -74,4 +74,4 @@ El proyecto usa el argoritmo K-Means Clustering para analizar y extraer colores 
     
    * **Resultado**: Muestra el ratio de contraste.
 
-Número:
+Número: 8
